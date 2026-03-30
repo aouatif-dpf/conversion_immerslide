@@ -567,8 +567,8 @@ function buildElement(el) {
     imgBox.className = 'el-image';
 
     // Tenter de charger l'image (chemin relatif)
-    var imgPath = content.replace(/\\/g, '/');
-    var imgTag  = document.createElement('img');
+    var filename = el.image_filename || content.replace(/.*[\\\/]/, '');
+    var imgPath  = '../data/images/' + filename;    var imgTag  = document.createElement('img');
     imgTag.src  = imgPath;
     imgTag.alt  = imgPath;
     imgTag.style.width  = '100%';
