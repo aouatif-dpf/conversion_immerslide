@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ImmerSlide Viewer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:       #07090f;
+    --surface:  #0d1118;
+    --border:   rgba(255,255,255,0.07);
+    --gold:     #c9a84c;
+    --gold2:    rgba(201,168,76,0.15);
+    --gold3:    rgba(201,168,76,0.06);
+    --text:     #e8e4dc;
+    --muted:    rgba(232,228,220,0.4);
+    --screen-h: 220px;
+    --left-w:   180px;
+    --center-w: 280px;
+    --right-w:  180px;
+  }
+
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 32px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: rgba(7,9,15,0.92);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+  .topbar-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--gold);
+    letter-spacing: 0.02em;
+  }
+  .topbar-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── LOAD ZONE ── */
+  #load-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    gap: 16px;
+  }
+  .drop-box {
+    border: 1px dashed rgba(201,168,76,0.35);
+    border-radius: 12px;
+    padding: 48px 64px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    background: var(--gold3);
+  }
+  .drop-box:hover { background: var(--gold2); border-color: var(--gold); }
+  .drop-box input { display: none; }
+  .drop-icon { font-size: 32px; margin-bottom: 12px; }
+  .drop-label { font-size: 14px; color: var(--gold); font-weight: 500; }
+  .drop-sub { font-size: 11px; color: var(--muted); margin-top: 6px; font-family: 'DM Mono', monospace; }
+
+  /* ── MAIN VIEWER ── */
+  #viewer { display: none; padding: 32px 0 80px; }
+
+  /* ── IMMERSLIDE UNIT ── */
+  .immerslide-unit {
+    margin-bottom: 64px;
+    padding: 0 32px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .immerslide-unit.visible { opacity: 1; transform: translateY(0); }
+
+  .unit-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .unit-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .unit-id {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+  }
+
+  /* ── 3-SCREEN STAGE ── */
+  .stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1400px;
+    gap: 0;
+    padding: 20px 0 12px;
+  }
+
+  .screen {
+    height: var(--screen-h);
+    background: var(--surface);
+    border: 1px solid rgba(201,168,76,0.2);
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .screen-left {
+    width: var(--left-w);
+    transform: rotateY(36deg) translateX(8px);
+    transform-origin: right center;
+    opacity: 0.78;
+    border-right: none;
+    z-index: 1;
+  }
+  .screen-center {
+    width: var(--center-w);
+    z-index: 2;
+    border-color: rgba(201,168,76,0.45);
+    box-shadow: 0 0 40px rgba(201,168,76,0.08);
+  }
+  .screen-right {
+    width: var(--right-w);
+    transform: rotateY(-36deg) translateX(-8px);
+    transform-origin: left center;
+    opacity: 0.78;
+    border-left: none;
+    z-index: 1;
+  }
+
+  /* ── CANVAS INTERNE (positionnement absolu des éléments) ── */
+  .screen-canvas {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, #0d1520, #111827);
+  }
+
+  /* ── ÉLÉMENTS ── */
+  .el {
+    position: absolute;
+    overflow: hidden;
+  }
+
+  /* Texte */
+  .el-text {
+    line-height: 1.35;
+    word-break: break-word;
+    overflow: hidden;
+  }
+
+  /* Image placeholder */
+  .el-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(201,168,76,0.06);
+    border: 1px dashed rgba(201,168,76,0.2);
+    border-radius: 2px;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .el-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .el-image-placeholder {
+    font-size: 8px;
+    color: rgba(201,168,76,0.45);
+    text-align: center;
+    padding: 4px;
+    font-family: 'DM Mono', monospace;
+    word-break: break-all;
+  }
+  .el-image-icon {
+    font-size: 14px;
+    opacity: 0.4;
+  }
+
+  /* Forme */
+  .el-shape {
+    width: 100%;
+    height: 100%;
+    border-radius: 1px;
+  }
+
+  /* Empty screen hint */
+  .empty-hint {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    color: rgba(255,255,255,0.08);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* ── NAVIGATION ENTRE IMMERSLIDES ── */
+  .nav-bar {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(13,17,24,0.92);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 40px;
+    padding: 8px 16px;
+    backdrop-filter: blur(16px);
+    z-index: 200;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  .nav-btn {
+    background: none;
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    transition: background 0.2s;
+  }
+  .nav-btn:hover { background: rgba(201,168,76,0.12); }
+  .nav-btn:disabled { opacity: 0.25; cursor: default; }
+
+  .nav-dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .nav-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.2);
+    cursor: pointer;
+    transition: background 0.25s, transform 0.25s;
+    border: none;
+  }
+  .nav-dot.active {
+    background: var(--gold);
+    transform: scale(1.35);
+  }
+  .nav-counter {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    min-width: 48px;
+    text-align: center;
+  }
+
+  /* ── LABELS ÉCRANS ── */
+  .screen-label {
+    text-align: center;
+    font-size: 8px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.18em;
+    color: rgba(201,168,76,0.3);
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+  .screens-labels {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+  }
+  .screen-label-left   { width: var(--left-w);   text-align: center; }
+  .screen-label-center { width: var(--center-w); text-align: center; color: rgba(201,168,76,0.5); }
+  .screen-label-right  { width: var(--right-w);  text-align: center; }
+
+  /* ── DIVIDER ── */
+  .unit-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(201,168,76,0.15), transparent);
+    margin: 0 32px 0;
+  }
+
+  /* ── SCROLL INDICATOR ── */
+  .active-indicator {
+    position: fixed;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 150;
+  }
+  .ind-dot {
+    width: 3px;
+    height: 18px;
+    border-radius: 2px;
+    background: rgba(201,168,76,0.15);
+    cursor: pointer;
+    transition: background 0.3s, height 0.3s;
+  }
+  .ind-dot.active {
+    background: var(--gold);
+    height: 28px;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-title">ImmerSlide Viewer</div>
+  <div class="topbar-meta" id="meta">— / — slides</div>
+</div>
+
+<!-- Zone de chargement -->
+<div id="load-zone">
+  <div class="drop-box" onclick="document.getElementById('file-input').click()">
+    <input type="file" id="file-input" accept=".json">
+    <div class="drop-icon">📂</div>
+    <div class="drop-label">Charger immerslide.json</div>
+    <div class="drop-sub">cliquer ou glisser-déposer</div>
+  </div>
+</div>
+
+<!-- Viewer principal -->
+<div id="viewer"></div>
+
+<!-- Navigation fixe en bas -->
+<div class="nav-bar" id="nav-bar" style="display:none">
+  <button class="nav-btn" id="btn-prev" onclick="navigateTo(currentIdx - 1)">&#8592;</button>
+  <div class="nav-dots" id="nav-dots"></div>
+  <div class="nav-counter" id="nav-counter">1 / 1</div>
+  <button class="nav-btn" id="btn-next" onclick="navigateTo(currentIdx + 1)">&#8594;</button>
+</div>
+
+<!-- Indicateur latéral -->
+<div class="active-indicator" id="side-indicator"></div>
+
+<script>
+// ─── État global ───────────────────────────────────────────────────────────
+var slides    = [];
+var currentIdx = 0;
+var units      = [];
+
+// ─── Chargement fichier ────────────────────────────────────────────────────
+document.getElementById('file-input').addEventListener('change', function(e) {
+  var file = e.target.files[0];
+  if (!file) return;
+  var reader = new FileReader();
+  reader.onload = function(ev) {
+    try {
+      var data = JSON.parse(ev.target.result);
+      var arr  = data.immerslides || data;
+      if (!Array.isArray(arr)) arr = [arr];
+      arr.sort(function(a, b) { return (a.order || 0) - (b.order || 0); });
+      slides = arr;
+      initViewer();
+    } catch(err) {
+      alert('JSON invalide : ' + err.message);
+    }
+  };
+  reader.readAsText(file);
+});
+
+// Drag & drop
+document.addEventListener('dragover',  function(e) { e.preventDefault(); });
+document.addEventListener('drop', function(e) {
+  e.preventDefault();
+  var file = e.dataTransfer.files[0];
+  if (file && file.name.endsWith('.json')) {
+    var reader = new FileReader();
+    reader.onload = function(ev) {
+      try {
+        var data = JSON.parse(ev.target.result);
+        var arr  = data.immerslides || data;
+        if (!Array.isArray(arr)) arr = [arr];
+        arr.sort(function(a, b) { return (a.order || 0) - (b.order || 0); });
+        slides = arr;
+        initViewer();
+      } catch(err) { alert('JSON invalide : ' + err.message); }
+    };
+    reader.readAsText(file);
+  }
+});
+
+// ─── Init viewer ───────────────────────────────────────────────────────────
+function initViewer() {
+  document.getElementById('load-zone').style.display = 'none';
+  document.getElementById('viewer').style.display    = 'block';
+  document.getElementById('nav-bar').style.display   = 'flex';
+  document.getElementById('meta').textContent         = slides.length + ' immerslide(s)';
+
+  var viewer = document.getElementById('viewer');
+  viewer.innerHTML = '';
+  units = [];
+
+  // Construire chaque ImmerSlide
+  slides.forEach(function(slide, idx) {
+    var unit = buildImmerslide(slide, idx);
+    viewer.appendChild(unit);
+    units.push(unit);
+
+    // Divider sauf dernier
+    if (idx < slides.length - 1) {
+      var div = document.createElement('div');
+      div.className = 'unit-divider';
+      viewer.appendChild(div);
+    }
+  });
+
+  // Nav dots
+  buildNavDots();
+  buildSideIndicator();
+  updateNav(0);
+
+  // Intersection observer pour fade-in
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  units.forEach(function(u) { observer.observe(u); });
+
+  // Scroll observer pour nav active
+  var scrollObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var idx = parseInt(entry.target.dataset.idx);
+        updateNav(idx);
+      }
+    });
+  }, { threshold: 0.5 });
+  units.forEach(function(u) { scrollObs.observe(u); });
+}
+
+// ─── Construire un ImmerSlide (unité de 3 écrans) ─────────────────────────
+function buildImmerslide(slide, idx) {
+  var unit = document.createElement('div');
+  unit.className = 'immerslide-unit';
+  unit.dataset.idx = idx;
+
+  // Header
+  var header = document.createElement('div');
+  header.className = 'unit-header';
+  header.innerHTML =
+    '<span class="unit-num">ImmerSlide ' + String(idx + 1).padStart(2, '0') + '</span>' +
+    '<span class="unit-id">order=' + (slide.order || idx + 1) + ' · id=' + (slide.id || '—') + '</span>';
+  unit.appendChild(header);
+
+  // Stage 3 écrans
+  var stage = document.createElement('div');
+  stage.className = 'stage';
+
+  var screens = slide.screens || {};
+
+  var leftEl   = buildScreen('left',   screens.left   || {elements: []}, 'screen-left');
+  var centerEl = buildScreen('center', screens.center || {elements: []}, 'screen-center');
+  var rightEl  = buildScreen('right',  screens.right  || {elements: []}, 'screen-right');
+
+  stage.appendChild(leftEl);
+  stage.appendChild(centerEl);
+  stage.appendChild(rightEl);
+  unit.appendChild(stage);
+
+  // Labels
+  var labels = document.createElement('div');
+  labels.className = 'screens-labels';
+  labels.innerHTML =
+    '<div class="screen-label screen-label-left">left</div>' +
+    '<div class="screen-label screen-label-center">center</div>' +
+    '<div class="screen-label screen-label-right">right</div>';
+  unit.appendChild(labels);
+
+  return unit;
+}
+
+// ─── Construire un écran ───────────────────────────────────────────────────
+function buildScreen(key, screenData, cssClass) {
+  var wrapper = document.createElement('div');
+  wrapper.className = 'screen ' + cssClass;
+
+  var canvas = document.createElement('div');
+  canvas.className = 'screen-canvas';
+
+  var elements = screenData.elements || [];
+
+  if (elements.length === 0) {
+    var hint = document.createElement('div');
+    hint.className = 'empty-hint';
+    hint.textContent = key;
+    canvas.appendChild(hint);
+  } else {
+    elements.forEach(function(el) {
+      var node = buildElement(el);
+      if (node) canvas.appendChild(node);
+    });
+  }
+
+  wrapper.appendChild(canvas);
+  return wrapper;
+}
+
+// ─── Construire un élément selon son type ─────────────────────────────────
+function buildElement(el) {
+  var wrapper = document.createElement('div');
+  wrapper.className = 'el';
+
+  // Positions relatives → absolues (valeurs 0–1 → %)
+  var px = parseFloat(el.positionX || 0);
+  var py = parseFloat(el.positionY || 0);
+  var pw = parseFloat(el.width     || 0.5);
+  var ph = parseFloat(el.height    || 0.1);
+
+  wrapper.style.left   = (px * 100) + '%';
+  wrapper.style.top    = (py * 100) + '%';
+  wrapper.style.width  = (pw * 100) + '%';
+  wrapper.style.height = (ph * 100) + '%';
+
+  // Rotation
+  if (el.rotation && el.rotation !== 0) {
+    wrapper.style.transform = 'rotate(' + el.rotation + 'deg)';
+  }
+
+  var content = el.content || '';
+  var isImage = /\.(png|jpg|jpeg|gif|webp|svg)/i.test(content);
+  var hasText = el.font_family !== undefined || el.font_size !== undefined || el.font_color !== undefined;
+  var isShape = !isImage && !hasText && (el.name !== undefined || el.fill_color !== undefined);
+
+  if (isImage) {
+    // ── IMAGE ──
+    var imgBox = document.createElement('div');
+    imgBox.className = 'el-image';
+
+    // Tenter de charger l'image (chemin relatif)
+    var imgPath = content.replace(/\\/g, '/');
+    var imgTag  = document.createElement('img');
+    imgTag.src  = imgPath;
+    imgTag.alt  = imgPath;
+    imgTag.style.width  = '100%';
+    imgTag.style.height = '100%';
+    imgTag.style.objectFit = 'contain';
+
+    imgTag.onerror = function() {
+      // Placeholder si image non trouvée
+      imgBox.innerHTML =
+        '<div class="el-image-icon">🖼</div>' +
+        '<div class="el-image-placeholder">' + content.replace(/.*[\\\/]/, '') + '</div>';
+    };
+
+    imgBox.appendChild(imgTag);
+    wrapper.appendChild(imgBox);
+
+  } else if (isShape) {
+    // ── FORME ──
+    var shape = document.createElement('div');
+    shape.className = 'el-shape';
+
+    var fc = el.fill_color || '';
+    var oc = el.outline_color || '';
+
+    if (fc && fc !== '') {
+      shape.style.background = fc;
+    } else {
+      shape.style.background = 'rgba(201,168,76,0.05)';
+    }
+    if (oc && oc !== '') {
+      shape.style.border = '1px solid ' + oc;
+    } else {
+      shape.style.border = '1px solid rgba(255,255,255,0.06)';
+    }
+
+    // Tooltip nom de la forme
+    if (el.name) wrapper.title = el.name;
+
+    wrapper.appendChild(shape);
+
+  } else {
+    // ── TEXTE ──
+    if (!content || content.trim() === '' || content.trim() === '\n') {
+      return null; // Ignorer textes vides
+    }
+
+    var textNode = document.createElement('div');
+    textNode.className = 'el-text';
+    textNode.textContent = content;
+
+    // ── Styles typographiques depuis le JSON ──
+    // Taille de font : normalisée par rapport à la hauteur écran (220px)
+    // La slide source est ~540px de haut → scale = 220/540
+    var screenH = 220;
+    var slideH  = 540;
+    var scale   = screenH / slideH;
+    var fs      = parseFloat(el.font_size || 12);
+    var fsPx    = Math.max(7, Math.round(fs * scale * 1.8));
+    textNode.style.fontSize = fsPx + 'px';
+
+    // Famille
+    if (el.font_family) {
+      textNode.style.fontFamily = el.font_family + ', sans-serif';
+    }
+
+    // Couleur — si noir sur fond sombre → remplacer par blanc cassé
+    var fc2 = el.font_color || '#e8e4dc';
+    if (fc2 === '#000000' || fc2 === '#000') fc2 = '#e8e4dc';
+    textNode.style.color = fc2;
+
+    // Styles
+    if (el.bold)          textNode.style.fontWeight     = '600';
+    if (el.italic)        textNode.style.fontStyle      = 'italic';
+    if (el.underline)     textNode.style.textDecoration = 'underline';
+    if (el.strikethrough) textNode.style.textDecoration = 'line-through';
+
+    // Fill color (fond du textbox)
+    if (el.fill_color && el.fill_color !== '') {
+      wrapper.style.background = el.fill_color;
+      wrapper.style.padding    = '2px 4px';
+      wrapper.style.borderRadius = '2px';
+    }
+
+    wrapper.appendChild(textNode);
+  }
+
+  return wrapper;
+}
+
+// ─── Navigation ───────────────────────────────────────────────────────────
+function navigateTo(idx) {
+  if (idx < 0 || idx >= slides.length) return;
+  currentIdx = idx;
+  units[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  updateNav(idx);
+}
+
+function updateNav(idx) {
+  currentIdx = idx;
+
+  // Counter
+  document.getElementById('nav-counter').textContent =
+    String(idx + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+
+  // Prev/Next
+  document.getElementById('btn-prev').disabled = idx === 0;
+  document.getElementById('btn-next').disabled = idx === slides.length - 1;
+
+  // Dots nav
+  document.querySelectorAll('.nav-dot').forEach(function(d, i) {
+    d.classList.toggle('active', i === idx);
+  });
+
+  // Side indicator
+  document.querySelectorAll('.ind-dot').forEach(function(d, i) {
+    d.classList.toggle('active', i === idx);
+  });
+}
+
+function buildNavDots() {
+  var container = document.getElementById('nav-dots');
+  container.innerHTML = '';
+  // Limiter à 20 dots max pour ne pas déborder
+  var max = Math.min(slides.length, 20);
+  for (var i = 0; i < max; i++) {
+    (function(i) {
+      var dot = document.createElement('button');
+      dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+      dot.onclick = function() { navigateTo(i); };
+      dot.title = 'ImmerSlide ' + (i + 1);
+      container.appendChild(dot);
+    })(i);
+  }
+}
+
+function buildSideIndicator() {
+  var container = document.getElementById('side-indicator');
+  container.innerHTML = '';
+  var max = Math.min(slides.length, 30);
+  for (var i = 0; i < max; i++) {
+    (function(i) {
+      var dot = document.createElement('div');
+      dot.className = 'ind-dot' + (i === 0 ? ' active' : '');
+      dot.onclick = function() { navigateTo(i); };
+      dot.title = 'ImmerSlide ' + (i + 1);
+      container.appendChild(dot);
+    })(i);
+  }
+}
+
+// ─── Touches clavier ──────────────────────────────────────────────────────
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown')  navigateTo(currentIdx + 1);
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')    navigateTo(currentIdx - 1);
+});
+</script>
+</body>
+</html>

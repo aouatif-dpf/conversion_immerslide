@@ -1,0 +1,338 @@
+{
+  "id": 26,
+  "name": "Presentation1.pptx",
+  "slides": [
+    {
+      "id": 201,
+      "slide_number": 1,
+      "notes": "",
+      "backgroundColor": "",
+      "textes": [
+        {
+          "id": 2034,
+          "content": "Central Ecole de Casablanca est une école",
+          "positionX": 220.1904724409449,
+          "positionY": 31.29236220472441,
+          "height": 48.46874015748031,
+          "width": 661.7647244094488,
+          "rotation": 0,
+          "font_family": "Calibri",
+          "font_size": 18,
+          "bold": true,
+          "italic": false,
+          "underline": false,
+          "strikethrough": false,
+          "font_color": "#000000",
+          "fill_color": ""
+        },
+        {
+          "id": 2035,
+          "content": " d’ingénieurs prestigieuse qui forme des leaders techniques et innovants.",
+          "positionX": 220.1904724409449,
+          "positionY": 31.29236220472441,
+          "height": 48.46874015748031,
+          "width": 661.7647244094488,
+          "rotation": 0,
+          "font_family": "Calibri",
+          "font_size": 16,
+          "bold": false,
+          "italic": false,
+          "underline": false,
+          "strikethrough": false,
+          "font_color": "#000000",
+          "fill_color": ""
+        }
+      ],
+      "images": [
+        {
+          "id": 278,
+          "slideId": null,
+          "content": "C:\\Users\\AouatifELHADI\\Desktop\\immerslide_v2\\immerslide\\data\\images\\image_0001.png",
+          "positionX": 184.01433070866142,
+          "positionY": 98.30275590551182,
+          "height": 357.77614173228346,
+          "width": 536.9997637795276,
+          "rotation": 0,
+          "image_filename": "image_0001.png"
+        }
+      ],
+      "formes": [
+        {
+          "id": 745,
+          "name": "AutoShape 2",
+          "positionX": 468,
+          "positionY": 258,
+          "height": 282.4225196850394,
+          "width": 282.4225196850394,
+          "rotation": 0,
+          "fill_color": "",
+          "outline_color": ""
+        },
+        {
+          "id": 746,
+          "name": "Rectangle 5",
+          "positionX": 220.1904724409449,
+          "positionY": 31.29236220472441,
+          "height": 48.46874015748031,
+          "width": 661.7647244094488,
+          "rotation": 0,
+          "fill_color": "",
+          "outline_color": ""
+        }
+      ]
+    },
+    {
+      "id": 202,
+      "slide_number": 2,
+      "notes": "",
+      "backgroundColor": "",
+      "textes": [
+        {
+          "id": 2036,
+          "content": "Fondée en 2017, Central Casablanca fait partie du réseau des Écoles Centrales.",
+          "positionX": 104.78874015748032,
+          "positionY": 73.0140157480315,
+          "height": 94.51409448818897,
+          "width": 375.21125984251967,
+          "rotation": 0,
+          "font_family": "Calibri",
+          "font_size": 18,
+          "bold": false,
+          "italic": false,
+          "underline": false,
+          "strikethrough": false,
+          "font_color": "#000000",
+          "fill_color": ""
+        },
+        {
+          "id": 2037,
+          "content": "\n",
+          "positionX": 104.78874015748032,
+          "positionY": 73.0140157480315,
+          "height": 94.51409448818897,
+          "width": 375.21125984251967,
+          "rotation": 0,
+          "font_family": "Calibri",
+          "font_size": 18,
+          "bold": false,
+          "italic": false,
+          "underline": false,
+          "strikethrough": false,
+          "font_color": "#000000",
+          "fill_color": ""
+        },
+        {
+          "id": 2038,
+          "content": "Elle vise l’excellence académique et l’innovation technologique au Maroc.",
+          "positionX": 104.78874015748032,
+          "positionY": 73.0140157480315,
+          "height": 94.51409448818897,
+          "width": 375.21125984251967,
+          "rotation": 0,
+          "font_family": "Calibri",
+          "font_size": 18,
+          "bold": false,
+          "italic": false,
+          "underline": false,
+          "strikethrough": false,
+          "font_color": "#000000",
+          "fill_color": ""
+        }
+      ],
+      "images": [
+        {
+          "id": 279,
+          "slideId": null,
+          "content": "C:\\Users\\AouatifELHADI\\Desktop\\immerslide_v2\\immerslide\\data\\images\\image_0002.png",
+          "positionX": 535.5247244094488,
+          "positionY": 84.3128346456693,
+          "height": 283.5396062992126,
+          "width": 333.87503937007875,
+          "rotation": 0,
+          "image_filename": "image_0002.png"
+        },
+        {
+          "id": 280,
+          "slideId": null,
+          "content": "C:\\Users\\AouatifELHADI\\Desktop\\immerslide_v2\\immerslide\\data\\images\\image_0003.png",
+          "positionX": 63.70897637795276,
+          "positionY": 182.97779527559055,
+          "height": 292.6925984251969,
+          "width": 434.20661417322833,
+          "rotation": 0,
+          "image_filename": "image_0003.png"
+        }
+      ],
+      "formes": [
+        {
+          "id": 747,
+          "name": "TextBox 3",
+          "positionX": 104.78874015748032,
+          "positionY": 73.0140157480315,
+          "height": 94.51409448818897,
+          "width": 375.21125984251967,
+          "rotation": 0,
+          "fill_color": "",
+          "outline_color": ""
+        }
+      ]
+    },
+    {
+      "id": 203,
+      "slide_number": 3,
+      "notes": "",
+      "backgroundColor": "",
+      "textes": [
+        {
+          "id": 2039,
+          "content": "Programmes et formations",
+          "positionX": 281.66196850393703,
+          "positionY": 44.783228346456696,
+          "height": 29.081259842519685,
+          "width": 480.16897637795273,
+          "rotation": 0,
+          "font_family": "Algerian",
+          "font_size": 18,
+          "bold": false,
+          "italic": false,
+          "underline": false,
+          "strikethrough": false,
+          "font_color": "#ff0000",
+          "fill_color": ""
+        },
+        {
+          "id": 2040,
+          "content": "Cycle d ",
+          "positionX": 281.66196850393703,
+          "positionY": 114.93496062992126,
+          "height": 29.081259842519685,
+          "width": 319.711968503937,
+          "rotation": 0,
+          "font_family": "Calibri",
+          "font_size": 18,
+          "bold": false,
+          "italic": false,
+          "underline": false,
+          "strikethrough": false,
+          "font_color": "#000000",
+          "fill_color": ""
+        },
+        {
+          "id": 2041,
+          "content": "ingenieur",
+          "positionX": 281.66196850393703,
+          "positionY": 114.93496062992126,
+          "height": 29.081259842519685,
+          "width": 319.711968503937,
+          "rotation": 0,
+          "font_family": "Calibri",
+          "font_size": 18,
+          "bold": false,
+          "italic": false,
+          "underline": false,
+          "strikethrough": false,
+          "font_color": "#000000",
+          "fill_color": ""
+        },
+        {
+          "id": 2042,
+          "content": " et bachelor et ",
+          "positionX": 281.66196850393703,
+          "positionY": 114.93496062992126,
+          "height": 29.081259842519685,
+          "width": 319.711968503937,
+          "rotation": 0,
+          "font_family": "Calibri",
+          "font_size": 18,
+          "bold": false,
+          "italic": false,
+          "underline": false,
+          "strikethrough": false,
+          "font_color": "#000000",
+          "fill_color": ""
+        },
+        {
+          "id": 2043,
+          "content": "doctorat",
+          "positionX": 281.66196850393703,
+          "positionY": 114.93496062992126,
+          "height": 29.081259842519685,
+          "width": 319.711968503937,
+          "rotation": 0,
+          "font_family": "Calibri",
+          "font_size": 18,
+          "bold": false,
+          "italic": false,
+          "underline": false,
+          "strikethrough": false,
+          "font_color": "#000000",
+          "fill_color": ""
+        },
+        {
+          "id": 2044,
+          "content": " ",
+          "positionX": 281.66196850393703,
+          "positionY": 114.93496062992126,
+          "height": 29.081259842519685,
+          "width": 319.711968503937,
+          "rotation": 0,
+          "font_family": "Calibri",
+          "font_size": 18,
+          "bold": false,
+          "italic": false,
+          "underline": false,
+          "strikethrough": false,
+          "font_color": "#000000",
+          "fill_color": ""
+        }
+      ],
+      "images": [],
+      "formes": [
+        {
+          "id": 748,
+          "name": "TextBox 2",
+          "positionX": 281.66196850393703,
+          "positionY": 44.783228346456696,
+          "height": 29.081259842519685,
+          "width": 480.16897637795273,
+          "rotation": 0,
+          "fill_color": "",
+          "outline_color": ""
+        },
+        {
+          "id": 749,
+          "name": "TextBox 12",
+          "positionX": 110.5351968503937,
+          "positionY": 100.39433070866141,
+          "height": 29.081259842519685,
+          "width": 14.545748031496062,
+          "rotation": 0,
+          "fill_color": "",
+          "outline_color": ""
+        },
+        {
+          "id": 750,
+          "name": "Rectangle 8",
+          "positionX": 317.4084251968504,
+          "positionY": 245.205905511811,
+          "height": 21.810944881889764,
+          "width": 424.9014173228346,
+          "rotation": 0,
+          "fill_color": "#ffffff",
+          "outline_color": ""
+        },
+        {
+          "id": 751,
+          "name": "TextBox 17",
+          "positionX": 281.66196850393703,
+          "positionY": 114.93496062992126,
+          "height": 29.081259842519685,
+          "width": 319.711968503937,
+          "rotation": 0,
+          "fill_color": "",
+          "outline_color": ""
+        }
+      ]
+    }
+  ]
+}
