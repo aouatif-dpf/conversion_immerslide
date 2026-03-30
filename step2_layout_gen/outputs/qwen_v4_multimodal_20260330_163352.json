@@ -1,0 +1,358 @@
+{
+  "immerslides": [
+    {
+      "id": 201,
+      "order": 1,
+      "screens": {
+        "left": {
+          "elements": [
+            {
+              "id": 2034,
+              "content": "Central Ecole de Casablanca est une école",
+              "positionX": 0.2294,
+              "positionY": 0.0579,
+              "height": 0.0898,
+              "width": 0.6893,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 18,
+              "bold": true,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": ""
+            }
+          ]
+        },
+        "center": {
+          "elements": [
+            {
+              "id": 278,
+              "content": "C:\\Users\\AouatifELHADI\\Desktop\\immerslide_v2\\immerslide\\data\\images\\image_0001.png",
+              "positionX": 0.1917,
+              "positionY": 0.182,
+              "height": 0.6625,
+              "width": 0.5594,
+              "rotation": 0,
+              "image_filename": "image_0001.png"
+            }
+          ]
+        },
+        "right": {
+          "elements": [
+            {
+              "id": 2035,
+              "content": " d’ingénieurs prestigieuse qui forme des leaders techniques et innovants.",
+              "positionX": 0.2294,
+              "positionY": 0.0579,
+              "height": 0.0898,
+              "width": 0.6893,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 16,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": ""
+            },
+            {
+              "id": 745,
+              "name": "AutoShape 2",
+              "positionX": 0.05,
+              "positionY": 0.1877,
+              "height": 0.25,
+              "width": 0.9,
+              "rotation": 0,
+              "fill_color": "",
+              "outline_color": ""
+            },
+            {
+              "id": 746,
+              "name": "Rectangle 5",
+              "positionX": 0.05,
+              "positionY": 0.4777,
+              "height": 0.0898,
+              "width": 0.9,
+              "rotation": 0,
+              "fill_color": "",
+              "outline_color": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 202,
+      "order": 2,
+      "screens": {
+        "left": {
+          "elements": [
+            {
+              "id": 2036,
+              "content": "Fondée en 2017, Central Casablanca fait partie du réseau des Écoles Centrales.",
+              "positionX": 0.1092,
+              "positionY": 0.1352,
+              "height": 0.175,
+              "width": 0.3908,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 18,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": ""
+            }
+          ]
+        },
+        "center": {
+          "elements": [
+            {
+              "id": 279,
+              "content": "C:\\Users\\AouatifELHADI\\Desktop\\immerslide_v2\\immerslide\\data\\images\\image_0002.png",
+              "positionX": 0.5578,
+              "positionY": 0.1561,
+              "height": 0.5251,
+              "width": 0.3478,
+              "rotation": 0,
+              "image_filename": "image_0002.png"
+            }
+          ]
+        },
+        "right": {
+          "elements": [
+            {
+              "id": 280,
+              "content": "C:\\Users\\AouatifELHADI\\Desktop\\immerslide_v2\\immerslide\\data\\images\\image_0003.png",
+              "positionX": 0.0664,
+              "positionY": 0.3388,
+              "height": 0.542,
+              "width": 0.4523,
+              "rotation": 0,
+              "image_filename": "image_0003.png"
+            },
+            {
+              "id": 747,
+              "name": "TextBox 3",
+              "positionX": 0.05,
+              "positionY": 0.9,
+              "height": 0.175,
+              "width": 0.9,
+              "rotation": 0,
+              "fill_color": "",
+              "outline_color": ""
+            },
+            {
+              "id": 2037,
+              "content": "\n",
+              "positionX": 0.05,
+              "positionY": 0.9,
+              "height": 0.175,
+              "width": 0.9,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 18,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": ""
+            },
+            {
+              "id": 2038,
+              "content": "Elle vise l’excellence académique et l’innovation technologique au Maroc.",
+              "positionX": 0.05,
+              "positionY": 0.9,
+              "height": 0.175,
+              "width": 0.9,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 18,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 203,
+      "order": 3,
+      "screens": {
+        "left": {
+          "elements": [
+            {
+              "id": 2039,
+              "positionX": 0.2934,
+              "positionY": 0.0829,
+              "height": 0.0539,
+              "width": 0.5002,
+              "rotation": 0,
+              "font_family": "Algerian",
+              "font_size": 18,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#ff0000",
+              "fill_color": "",
+              "name": "TITLE"
+            }
+          ]
+        },
+        "center": {
+          "elements": [
+            {
+              "id": 751,
+              "positionX": 0.2934,
+              "positionY": 0.2128,
+              "height": 0.0539,
+              "width": 0.333,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 18,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": "",
+              "name": "TEXT"
+            }
+          ]
+        },
+        "right": {
+          "elements": [
+            {
+              "id": 2040,
+              "positionX": 0.2934,
+              "positionY": 0.2128,
+              "height": 0.0539,
+              "width": 0.333,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 18,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": "",
+              "name": "BODY"
+            },
+            {
+              "id": 2041,
+              "positionX": 0.2934,
+              "positionY": 0.2128,
+              "height": 0.0539,
+              "width": 0.333,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 18,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": "",
+              "name": "BODY"
+            },
+            {
+              "id": 2042,
+              "positionX": 0.2934,
+              "positionY": 0.2128,
+              "height": 0.0539,
+              "width": 0.333,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 18,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": "",
+              "name": "BODY"
+            },
+            {
+              "id": 2043,
+              "positionX": 0.2934,
+              "positionY": 0.2128,
+              "height": 0.0539,
+              "width": 0.333,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 18,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": "",
+              "name": "BODY"
+            },
+            {
+              "id": 2044,
+              "positionX": 0.2934,
+              "positionY": 0.2128,
+              "height": 0.0539,
+              "width": 0.333,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 18,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": "",
+              "name": "BODY"
+            },
+            {
+              "id": 748,
+              "name": "TextBox 2",
+              "positionX": 0.05,
+              "positionY": 0.3067,
+              "height": 0.0539,
+              "width": 0.9,
+              "rotation": 0,
+              "fill_color": "",
+              "outline_color": ""
+            },
+            {
+              "id": 749,
+              "name": "TextBox 12",
+              "positionX": 0.05,
+              "positionY": 0.4006,
+              "height": 0.0539,
+              "width": 0.9,
+              "rotation": 0,
+              "fill_color": "",
+              "outline_color": ""
+            },
+            {
+              "id": 750,
+              "name": "Rectangle 8",
+              "positionX": 0.05,
+              "positionY": 0.4945,
+              "height": 0.0404,
+              "width": 0.9,
+              "rotation": 0,
+              "fill_color": "#ffffff",
+              "outline_color": ""
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
