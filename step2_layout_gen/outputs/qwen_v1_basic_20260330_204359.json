@@ -1,0 +1,362 @@
+{
+  "immerslides": [
+    {
+      "id": 201,
+      "order": 1,
+      "screens": {
+        "left": {
+          "elements": [
+            {
+              "id": 2034,
+              "positionX": 0.2294,
+              "positionY": 0.0579,
+              "height": 0.0898,
+              "width": 0.6893,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 18,
+              "bold": true,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": ""
+            }
+          ]
+        },
+        "center": {
+          "elements": [
+            {
+              "id": 278,
+              "positionX": 0.1917,
+              "positionY": 0.182,
+              "height": 0.6625,
+              "width": 0.5594,
+              "rotation": 0,
+              "image_filename": "image_0001.png"
+            }
+          ]
+        },
+        "right": {
+          "elements": [
+            {
+              "id": 745,
+              "name": "AutoShape 2",
+              "positionX": 0.4875,
+              "positionY": 0.4778,
+              "height": 0.5222,
+              "width": 0.2942,
+              "rotation": 0,
+              "fill_color": "",
+              "outline_color": ""
+            },
+            {
+              "id": 746,
+              "name": "Rectangle 5",
+              "positionX": 0.2294,
+              "positionY": 0.0579,
+              "height": 0.0898,
+              "width": 0.6893,
+              "rotation": 0,
+              "fill_color": "",
+              "outline_color": ""
+            },
+            {
+              "id": 2035,
+              "content": " d’ingénieurs prestigieuse qui forme des leaders techniques et innovants.",
+              "positionX": 0.05,
+              "positionY": 0.9,
+              "height": 0.0898,
+              "width": 0.9,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 16,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 202,
+      "order": 2,
+      "screens": {
+        "left": {
+          "elements": [
+            {
+              "id": 2036,
+              "content": "Fondée en 2017, Central Casablanca fait partie du réseau des Écoles Centrales.",
+              "positionX": 0.1092,
+              "positionY": 0.1352,
+              "height": 0.175,
+              "width": 0.3908,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 18,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": ""
+            }
+          ]
+        },
+        "center": {
+          "elements": [
+            {
+              "id": 279,
+              "content": "C:\\Users\\AouatifELHADI\\Desktop\\immerslide_v2\\immerslide\\data\\images\\image_0002.png",
+              "positionX": 0.5578,
+              "positionY": 0.1561,
+              "height": 0.5251,
+              "width": 0.3478,
+              "rotation": 0,
+              "image_filename": "image_0002.png"
+            }
+          ]
+        },
+        "right": {
+          "elements": [
+            {
+              "id": 280,
+              "content": "C:\\Users\\AouatifELHADI\\Desktop\\immerslide_v2\\immerslide\\data\\images\\image_0003.png",
+              "positionX": 0.0664,
+              "positionY": 0.3388,
+              "height": 0.542,
+              "width": 0.4523,
+              "rotation": 0,
+              "image_filename": "image_0003.png"
+            },
+            {
+              "id": 747,
+              "name": "TextBox 3",
+              "positionX": 0.1092,
+              "positionY": 0.1352,
+              "height": 0.175,
+              "width": 0.3908,
+              "rotation": 0,
+              "fill_color": "",
+              "outline_color": ""
+            },
+            {
+              "id": 2037,
+              "content": "\n",
+              "positionX": 0.05,
+              "positionY": 0.9,
+              "height": 0.175,
+              "width": 0.9,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 18,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": ""
+            },
+            {
+              "id": 2038,
+              "content": "Elle vise l’excellence académique et l’innovation technologique au Maroc.",
+              "positionX": 0.05,
+              "positionY": 0.9,
+              "height": 0.175,
+              "width": 0.9,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 18,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 203,
+      "order": 3,
+      "screens": {
+        "left": {
+          "elements": [
+            {
+              "id": 2039,
+              "content": "Programmes et formations",
+              "positionX": 0.2934,
+              "positionY": 0.0829,
+              "height": 0.0539,
+              "width": 0.5002,
+              "rotation": 0,
+              "font_family": "Algerian",
+              "font_size": 18,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#ff0000",
+              "fill_color": ""
+            }
+          ]
+        },
+        "center": {
+          "elements": [
+            {
+              "id": 2041,
+              "content": "ingenieur",
+              "positionX": 0.2934,
+              "positionY": 0.2128,
+              "height": 0.0539,
+              "width": 0.333,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 18,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": ""
+            }
+          ]
+        },
+        "right": {
+          "elements": [
+            {
+              "id": 749,
+              "content": "Cycle d ",
+              "positionX": 0.1151,
+              "positionY": 0.1859,
+              "height": 0.0539,
+              "width": 0.0152,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 18,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": ""
+            },
+            {
+              "id": 750,
+              "content": "ingenieur",
+              "positionX": 0.3306,
+              "positionY": 0.4541,
+              "height": 0.0404,
+              "width": 0.4426,
+              "rotation": 0,
+              "fill_color": "#ffffff",
+              "outline_color": ""
+            },
+            {
+              "id": 751,
+              "content": " et bachelor et doctorat",
+              "positionX": 0.2934,
+              "positionY": 0.2128,
+              "height": 0.0539,
+              "width": 0.333,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 18,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": ""
+            },
+            {
+              "id": 748,
+              "name": "TextBox 2",
+              "positionX": 0.05,
+              "positionY": 0.5345,
+              "height": 0.0539,
+              "width": 0.9,
+              "rotation": 0,
+              "fill_color": "",
+              "outline_color": ""
+            },
+            {
+              "id": 2040,
+              "content": "Cycle d ",
+              "positionX": 0.05,
+              "positionY": 0.6284,
+              "height": 0.0539,
+              "width": 0.9,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 18,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": ""
+            },
+            {
+              "id": 2042,
+              "content": " et bachelor et ",
+              "positionX": 0.05,
+              "positionY": 0.7223,
+              "height": 0.0539,
+              "width": 0.9,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 18,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": ""
+            },
+            {
+              "id": 2043,
+              "content": "doctorat",
+              "positionX": 0.05,
+              "positionY": 0.8162,
+              "height": 0.0539,
+              "width": 0.9,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 18,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": ""
+            },
+            {
+              "id": 2044,
+              "content": " ",
+              "positionX": 0.05,
+              "positionY": 0.9,
+              "height": 0.0539,
+              "width": 0.9,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 18,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": ""
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

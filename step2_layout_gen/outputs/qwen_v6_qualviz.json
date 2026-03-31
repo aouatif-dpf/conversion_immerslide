@@ -1,0 +1,220 @@
+{
+  "immerslides": [
+    {
+      "id": 201,
+      "order": 1,
+      "screens": {
+        "left": {
+          "elements": []
+        },
+        "center": {
+          "elements": []
+        },
+        "right": {
+          "elements": [
+            {
+              "id": 2034,
+              "content": "Central Ecole de Casablanca est une école",
+              "positionX": 0.04,
+              "positionY": 0.0579,
+              "width": 0.92,
+              "height": 0.14
+            },
+            {
+              "id": 2035,
+              "content": " d’ingénieurs prestigieuse qui forme des leaders techniques et innovants.",
+              "positionX": 0.04,
+              "positionY": 0.1277,
+              "width": 0.92,
+              "height": 0.12
+            },
+            {
+              "id": 278,
+              "content": "C:\\Users\\AouatifELHADI\\Desktop\\immerslide_v2\\immerslide\\data\\images\\image_0001.png",
+              "positionX": 0.04,
+              "positionY": 0.3596,
+              "width": 0.92,
+              "height": 0.32
+            },
+            {
+              "id": 745,
+              "content": "AutoShape 2",
+              "positionX": 0.04,
+              "positionY": 0.8166,
+              "width": 0.92,
+              "height": 0.05
+            },
+            {
+              "id": 746,
+              "content": "Rectangle 5",
+              "positionX": 0.04,
+              "positionY": 0.8166,
+              "width": 0.92,
+              "height": 0.05
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 202,
+      "order": 2,
+      "screens": {
+        "left": {
+          "elements": []
+        },
+        "center": {
+          "elements": []
+        },
+        "right": {
+          "elements": [
+            {
+              "id": 2036,
+              "content": "Fondée en 2017, Central Casablanca fait partie du réseau des Écoles Centrales.",
+              "positionX": 0.04,
+              "positionY": 0.05,
+              "width": 0.92,
+              "height": 0.12
+            },
+            {
+              "id": 2037,
+              "content": "\n",
+              "positionX": 0.04,
+              "positionY": 0.1352,
+              "width": 0.92,
+              "height": 0.05
+            },
+            {
+              "id": 2038,
+              "content": "Elle vise l’excellence académique et l’innovation technologique au Maroc.",
+              "positionX": 0.04,
+              "positionY": 0.1352,
+              "width": 0.92,
+              "height": 0.12
+            },
+            {
+              "id": 279,
+              "content": "C:\\Users\\AouatifELHADI\\Desktop\\immerslide_v2\\immerslide\\data\\images\\image_0002.png",
+              "positionX": 0.04,
+              "positionY": 0.1561,
+              "width": 0.92,
+              "height": 0.32
+            },
+            {
+              "id": 280,
+              "content": "C:\\Users\\AouatifELHADI\\Desktop\\immerslide_v2\\immerslide\\data\\images\\image_0003.png",
+              "positionX": 0.04,
+              "positionY": 0.3388,
+              "width": 0.92,
+              "height": 0.54
+            },
+            {
+              "id": 747,
+              "content": "TextBox 3",
+              "positionX": 0.04,
+              "positionY": 0.1352,
+              "width": 0.92,
+              "height": 0.12
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 203,
+      "order": 3,
+      "screens": {
+        "left": {
+          "elements": []
+        },
+        "center": {
+          "elements": []
+        },
+        "right": {
+          "elements": [
+            {
+              "id": 748,
+              "name": "TextBox 2",
+              "positionX": 0.04,
+              "positionY": 0.05,
+              "width": 0.92,
+              "height": 0.0539
+            },
+            {
+              "id": 749,
+              "name": "TextBox 12",
+              "positionX": 0.04,
+              "positionY": 0.1859,
+              "width": 0.92,
+              "height": 0.0539
+            },
+            {
+              "id": 750,
+              "name": "Rectangle 8",
+              "positionX": 0.04,
+              "positionY": 0.4541,
+              "width": 0.92,
+              "height": 0.0404
+            },
+            {
+              "id": 751,
+              "name": "TextBox 17",
+              "positionX": 0.04,
+              "positionY": 0.2128,
+              "width": 0.92,
+              "height": 0.0539
+            },
+            {
+              "id": 2039,
+              "name": "Programmes et formations",
+              "positionX": 0.04,
+              "positionY": 0.0829,
+              "width": 0.92,
+              "height": 0.12
+            },
+            {
+              "id": 2040,
+              "name": "Cycle d ",
+              "positionX": 0.04,
+              "positionY": 0.2128,
+              "width": 0.92,
+              "height": 0.12
+            },
+            {
+              "id": 2041,
+              "name": "ingenieur",
+              "positionX": 0.04,
+              "positionY": 0.2128,
+              "width": 0.92,
+              "height": 0.12
+            },
+            {
+              "id": 2042,
+              "name": " et bachelor et ",
+              "positionX": 0.04,
+              "positionY": 0.2128,
+              "width": 0.92,
+              "height": 0.12
+            },
+            {
+              "id": 2043,
+              "name": "doctorat",
+              "positionX": 0.04,
+              "positionY": 0.2128,
+              "width": 0.92,
+              "height": 0.12
+            },
+            {
+              "id": 2044,
+              "name": " ",
+              "positionX": 0.04,
+              "positionY": 0.2128,
+              "width": 0.92,
+              "height": 0.12
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

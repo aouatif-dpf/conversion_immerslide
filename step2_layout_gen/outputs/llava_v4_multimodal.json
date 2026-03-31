@@ -1,0 +1,87 @@
+{
+  "immerslides": [
+    {
+      "id": 201,
+      "order": 1,
+      "screens": {
+        "left": {
+          "elements": []
+        },
+        "center": {
+          "elements": [
+            {
+              "id": 2034,
+              "content": "Central Ecole de Casablanca est une école",
+              "positionX": 0.05,
+              "positionY": 0.03,
+              "height": 0.0898,
+              "width": 0.9,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 18,
+              "bold": true,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": ""
+            },
+            {
+              "id": 2035,
+              "content": " d’ingénieurs prestigieuse qui forme des leaders techniques et innovants.",
+              "positionX": 0.05,
+              "positionY": 0.1498,
+              "height": 0.0898,
+              "width": 0.9,
+              "rotation": 0,
+              "font_family": "Calibri",
+              "font_size": 16,
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false,
+              "font_color": "#000000",
+              "fill_color": ""
+            },
+            {
+              "id": 278,
+              "slideId": null,
+              "content": "C:\\Users\\AouatifELHADI\\Desktop\\immerslide_v2\\immerslide\\data\\images\\image_0001.png",
+              "positionX": 0.05,
+              "positionY": 0.2696,
+              "height": 0.28,
+              "width": 0.9,
+              "rotation": 0,
+              "image_filename": "image_0001.png"
+            },
+            {
+              "id": 745,
+              "name": "AutoShape 2",
+              "positionX": 0.05,
+              "positionY": 0.5796,
+              "height": 0.28,
+              "width": 0.9,
+              "rotation": 0,
+              "fill_color": "",
+              "outline_color": ""
+            },
+            {
+              "id": 746,
+              "name": "Rectangle 5",
+              "positionX": 0.05,
+              "positionY": 0.8896,
+              "height": 0.0898,
+              "width": 0.9,
+              "rotation": 0,
+              "fill_color": "",
+              "outline_color": ""
+            }
+          ]
+        },
+        "right": {
+          "elements": []
+        }
+      }
+    }
+  ]
+}
