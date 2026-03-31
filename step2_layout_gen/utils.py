@@ -210,3 +210,77 @@ def save_output(immerslides: list, output_file: str):
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump({"immerslides": immerslides}, f, indent=2, ensure_ascii=False)
     print(f"  saved {len(immerslides)} immerslide(s) → {output_file}")
+
+
+# ── EXTRACT JSON LIST (pour pass 2 qui retourne une liste) ────────────────────
+def extract_json_list(text: str) -> list:
+    """Extract first valid JSON array from LLM output."""
+    text = re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL)
+    text = re.sub(r"```(?:json)?", "", text).replace("```", "").strip()
+
+    # Chercher d'abord un tableau JSON
+    idx = 0
+    while idx < len(text):
+        start = text.find("[", idx)
+        if start == -1:
+            break
+        try:
+            decoder = json.JSONDecoder()
+            obj, _ = decoder.raw_decode(text[start:])
+            if isinstance(obj, list):
+                return obj
+        except json.JSONDecodeError:
+            pass
+        idx = start + 1
+
+    # Fallback : chercher un objet avec "elements"
+    try:
+        obj = extract_json(text)
+        if "elements" in obj:
+            return obj["elements"]
+    except Exception:
+        pass
+
+    raise ValueError("No valid JSON array found.")
+
+
+# ── STACK ELEMENTS — fallback déterministe pour pass 2 ───────────────────────
+def stack_elements(elements: list) -> list:
+    """
+    Deterministic vertical stack — used when pass 2 LLM fails.
+    Gives every element full width and stacks them from top to bottom.
+    """
+    result = []
+    y = 0.05
+    gap = 0.04
+
+    for el in elements:
+        e = dict(el)
+        content = e.get("content", "")
+        is_img = any(ext in content.lower() for ext in [".png", ".jpg", ".jpeg", ".gif", ".webp"])
+
+        if is_img:
+            h = 0.42
+        elif e.get("font_family") or e.get("font_size"):
+            # Texte : hauteur selon longueur
+            text_len = len(content.strip())
+            if text_len == 0 or content.strip() == "\n":
+                continue  # ignorer textes vides
+            h = 0.18 if text_len > 60 else 0.12
+        else:
+            # Forme
+            if not e.get("fill_color"):
+                continue  # ignorer formes invisibles
+            h = 0.06
+
+        if y + h > 0.95:
+            break  # plus de place
+
+        e["positionX"] = 0.04
+        e["positionY"] = round(y, 4)
+        e["width"]     = 0.92
+        e["height"]    = round(h, 4)
+        result.append(e)
+        y = round(y + h + gap, 4)
+
+    return result
